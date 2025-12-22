@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RoomLifecycleEvents",
+  "oneOf": [
+    {
+      "properties": {
+        "type": { "const": "room_created" },
+        "payload": {
+          "required": ["roomId", "maxPlayers"],
+          "properties": {
+            "roomId": { "type": "string" },
+            "maxPlayers": { "type": "integer" }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": { "const": "player_joined" },
+        "payload": {
+          "required": ["roomId", "playerId"],
+          "properties": {
+            "roomId": { "type": "string" },
+            "playerId": { "type": "string" }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": { "const": "room_terminated" },
+        "payload": {
+          "required": ["roomId", "reason"],
+          "properties": {
+            "roomId": { "type": "string" },
+            "reason": { "type": "string" }
+          }
+        }
+      }
+    }
+  ]
+}

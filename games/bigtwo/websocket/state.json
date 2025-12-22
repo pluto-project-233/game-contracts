@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BigTwoGameState",
+  "type": "object",
+  "required": ["roomId", "players", "currentTurn"],
+  "properties": {
+    "roomId": { "type": "string" },
+    "players": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["playerId", "cardCount"],
+        "properties": {
+          "playerId": { "type": "string" },
+          "cardCount": { "type": "integer" }
+        }
+      }
+    },
+    "currentTurn": { "type": "string" }
+  }
+}

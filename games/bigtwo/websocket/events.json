@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BigTwoEvents",
+  "oneOf": [
+    {
+      "properties": {
+        "type": { "const": "game_started" },
+        "payload": {
+          "type": "object",
+          "required": ["players"],
+          "properties": {
+            "players": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": { "const": "cards_played" },
+        "payload": {
+          "type": "object",
+          "required": ["playerId", "cards"],
+          "properties": {
+            "playerId": { "type": "string" },
+            "cards": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": { "const": "game_finished" },
+        "payload": {
+          "type": "object",
+          "required": ["winnerId"],
+          "properties": {
+            "winnerId": { "type": "string" }
+          }
+        }
+      }
+    }
+  ]
+}

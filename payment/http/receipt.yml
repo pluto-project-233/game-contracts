@@ -1,0 +1,16 @@
+openapi: 3.0.0
+info:
+  title: Payment Receipt
+  version: 1.0.0
+components:
+  schemas:
+    Receipt:
+      type: object
+      required: [receiptId, amount, status]
+      properties:
+        receiptId:
+          type: string
+        amount:
+          type: number
+        status:
+          type: string

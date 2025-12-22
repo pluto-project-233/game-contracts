@@ -1,0 +1,16 @@
+openapi: 3.0.0
+info:
+  title: User Profile
+  version: 1.0.0
+components:
+  schemas:
+    Profile:
+      type: object
+      required: [userId]
+      properties:
+        userId:
+          type: string
+        displayName:
+          type: string
+        avatarUrl:
+          type: string

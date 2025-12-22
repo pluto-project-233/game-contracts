@@ -1,0 +1,14 @@
+openapi: 3.0.0
+info:
+  title: User Identity
+  version: 1.0.0
+components:
+  schemas:
+    Identity:
+      type: object
+      required: [userId]
+      properties:
+        userId:
+          type: string
+        displayName:
+          type: string

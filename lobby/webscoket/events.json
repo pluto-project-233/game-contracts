@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LobbyEvents",
+  "oneOf": [
+    {
+      "properties": {
+        "type": { "const": "player_ready" },
+        "payload": {
+          "required": ["playerId"],
+          "properties": {
+            "playerId": { "type": "string" }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": { "const": "lobby_started" },
+        "payload": {
+          "required": ["gameType"],
+          "properties": {
+            "gameType": { "type": "string" }
+          }
+        }
+      }
+    }
+  ]
+}

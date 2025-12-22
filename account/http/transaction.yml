@@ -1,0 +1,25 @@
+openapi: 3.0.0
+info:
+  title: Point Transaction
+  version: 1.0.0
+components:
+  schemas:
+    PointTransaction:
+      type: object
+      required: [transactionId, userId, amount, type, timestamp]
+      properties:
+        transactionId:
+          type: string
+        userId:
+          type: string
+        amount:
+          type: integer
+        type:
+          type: string
+          enum: [earn, spend, adjust]
+        source:
+          type: string
+          description: Origin of transaction (game, reward, admin)
+        timestamp:
+          type: string
+          format: date-time

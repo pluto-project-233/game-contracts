@@ -1,0 +1,17 @@
+openapi: 3.0.0
+info:
+  title: Token Verification Result
+  version: 1.0.0
+components:
+  schemas:
+    TokenVerification:
+      type: object
+      required: [userId, valid]
+      properties:
+        userId:
+          type: string
+        valid:
+          type: boolean
+        claims:
+          type: object
+          additionalProperties: true

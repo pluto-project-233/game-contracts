@@ -1,0 +1,14 @@
+openapi: 3.0.0
+info:
+  title: Payment Webhook
+  version: 1.0.0
+components:
+  schemas:
+    WebhookEvent:
+      type: object
+      required: [eventId, status]
+      properties:
+        eventId:
+          type: string
+        status:
+          type: string

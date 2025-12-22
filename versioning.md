@@ -1,10 +1,18 @@
-# Versioning
+# Contract Versioning Rules
 
-This repository follows semantic versioning for released contract sets and deployment artifacts.
+## Global Contracts
 
-- Format: `MAJOR.MINOR.PATCH`
-- `MAJOR` for incompatible API/ABI changes
-- `MINOR` for new features that remain backwards compatible
-- `PATCH` for bug fixes and minor improvements
+- Intended to be stable
+- Backward-compatible changes only
+- Breaking changes are strongly discouraged
 
-Add changelog entries for each release.
+## Game Contracts
+
+- Versioned independently per game
+- Breaking changes affect only that game
+- Version folders (v1, v2) may be introduced if needed
+
+## General Rules
+
+- Breaking changes must be documented
+- Services must update before deployment
