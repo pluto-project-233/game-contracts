@@ -1,7 +1,6 @@
 # Game Contracts
 
-This repository defines the **canonical API and event contracts**
-used by all game services in the platform.
+This repository contains **contract-first API definitions** for the game platform.
 
 Contracts in this repository are the **single source of truth** for:
 - WebSocket message formats
@@ -13,16 +12,13 @@ This repository contains **no runtime code**.
 ---
 
 ## Structure
-
-- `global/`
-  Shared contracts that apply to all games
-
-- `games/`
-  Game-specific contracts isolated per game
-
-- `_template/`
-  Template for adding new games
-
+- `orchestrator/`: Public entry-point APIs
+- `lobby/`: Lobby service contracts
+- `account/`: Economy & ledger contracts
+- `payment/`: Payment provider integration contracts
+- `global/`: Shared contracts that apply to all games
+- `games/` : Game-specific contracts isolated per game
+- `_template/` : Template for adding new games
 ---
 
 ## Rules
@@ -33,3 +29,7 @@ This repository contains **no runtime code**.
   - `global/*`
   - `games/<its-own-game>/*`
 - Games must never import other games’ contracts
+- Contracts are **source of truth**
+- Services must conform to contracts
+- No implementation details here
+- Versioned and immutable once released

@@ -1,0 +1,69 @@
+paths:
+  /v1/game/start:
+    post:
+      summary: Start a game
+      security:
+        - firebaseAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "../schemas/base-request-envelope.json"
+                - $ref: "../schemas/idempotency.json"
+              properties:
+                roomId:
+                  type: string
+      responses:
+        "200":
+          description: Game started
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "../schemas/base-response-envelope.json"
+                  - type: object
+                    properties:
+                      data:
+                        properties:
+                          gameId:
+                            type: string
+
+  /v1/game/join:
+    post:
+      summary: Join a game
+      security:
+        - firebaseAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "../schemas/base-request-envelope.json"
+              properties:
+                roomId:
+                  type: string
+      responses:
+        "200":
+          description: Joined successfully
+
+  /v1/game/leave:
+    post:
+      summary: Leave a game
+      security:
+        - firebaseAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "../schemas/base-request-envelope.json"
+              properties:
+                roomId:
+                  type: string
+      responses:
+        "200":
+          description: Left game

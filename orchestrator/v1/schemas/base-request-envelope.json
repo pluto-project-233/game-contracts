@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BaseRequestEnvelope",
+  "type": "object",
+  "required": ["requestId", "timestamp"],
+  "properties": {
+    "requestId": {
+      "type": "string",
+      "description": "Client-generated unique request ID"
+    },
+    "correlationId": {
+      "type": "string",
+      "description": "Cross-service tracing ID"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

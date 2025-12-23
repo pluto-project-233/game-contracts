@@ -1,0 +1,28 @@
+paths:
+  /v1/payment/callback:
+    post:
+      summary: Payment provider webhook
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - referenceId
+                - amount
+                - status
+              properties:
+                referenceId:
+                  type: string
+                amount:
+                  type: number
+                status:
+                  type: string
+                  enum: [SUCCESS, FAILED]
+                signature:
+                  type: string
+      responses:
+        "200":
+          description: Callback acknowledged

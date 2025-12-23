@@ -16,3 +16,16 @@
 
 - Breaking changes must be documented
 - Services must update before deployment
+
+# Versioning Strategy
+
+- Versioning is **path-based**
+- Example: /v1/game/start
+- Minor changes must be backward compatible
+- Breaking changes require new version folder
+
+Rules:
+- v1 is immutable after release
+- Multiple versions may coexist
+- Orchestrator must support older versions if still in use
+

@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Idempotency",
+  "type": "object",
+  "required": ["idempotencyKey"],
+  "properties": {
+    "idempotencyKey": {
+      "type": "string",
+      "description": "Unique key to ensure idempotent execution",
+      "pattern": "^[a-zA-Z0-9_-]{1,255}$"
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Optional expiration time"
+    }
+  }
+}

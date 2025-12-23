@@ -1,0 +1,36 @@
+paths:
+  /v1/lobby/create:
+    post:
+      summary: Create a lobby
+      security:
+        - firebaseAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "../schemas/base-request-envelope.json"
+                - $ref: "../schemas/idempotency.json"
+              properties:
+                gameType:
+                  type: string
+                  example: BIGTWO
+                maxPlayers:
+                  type: integer
+                  example: 4
+      responses:
+        "200":
+          description: Lobby created
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "../schemas/base-response-envelope.json"
+                  - type: object
+                    properties:
+                      data:
+                        type: object
+                        properties:
+                          roomId:
+                            type: string

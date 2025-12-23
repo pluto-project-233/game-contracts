@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BaseResponseEnvelope",
+  "type": "object",
+  "required": ["status"],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["success", "error"]
+    },
+    "data": {
+      "type": "object"
+    },
+    "error": {
+      "$ref": "../http/error.yaml#/components/schemas/ErrorResponse"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "requestId": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
